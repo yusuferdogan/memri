@@ -1,0 +1,1 @@
+flutter run --web-port 8000 -t ../memri_web/lib/main.dart

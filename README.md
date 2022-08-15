@@ -5,7 +5,9 @@
 
         git clone https://github.com/yusuferdogan/memri.git
 
-* Write <cd memri> to your console
+* Enter memri directory
+        
+        cd memri
 
 * Run below command
 

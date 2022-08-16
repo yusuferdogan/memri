@@ -9,7 +9,7 @@ class ConsoleClient {
   final String _url = "https://api.github.com/users";
   final String _api = "events";
   final String _query = "per_page=100";
-  final String _token = "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";
+  final String _token = "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";
 
   /// Returns the User object of the given [userName]
   ///
@@ -24,7 +24,7 @@ class ConsoleClient {
             .get(Uri.parse("$_url/$userName/$_api?$_query&page=$i"), headers: {
           'Content-Type': 'application/json',
           "Accept": "application/vnd.github+json",
-          'Authorization': 'Bearer $_token',
+          'Authorization': 'Bearer $_token'
         });
         var jsonBody = jsonDecode(response.body);
         List<Events> event =

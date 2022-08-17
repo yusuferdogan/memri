@@ -17,7 +17,7 @@ void main(List<String> arguments) async {
     userList.add(result);
   }
   _writerConsole(userList);
-  stdout.write("Would you like to see data? Y/n");
+  stdout.write("Would you like to see data? Y/n ");
   final input = stdin.readLineSync();
   if (input!.toLowerCase() == 'y') {
     await httpServer(userList);
@@ -31,7 +31,7 @@ void _writerConsole(List<User> userList) {
   for (var item in userList) {
     var repos = item.repo();
     for (var repo in repos) {
-      stdout.write('${item.author}/${repo.label}: ${repo.value}');
+      stdout.writeln('${item.author}/${repo.label}: ${repo.value}');
     }
   }
 }

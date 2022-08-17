@@ -9,6 +9,7 @@
         
         cd memri
 
-* Run below command
+* Run below commands
 
+            flutter pub get    
             dart run bin/memri_console.dart user1, user2, .., usern

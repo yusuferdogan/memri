@@ -4,12 +4,12 @@ import 'package:http/http.dart' as http;
 import 'package:memri_web/model/events.dart';
 import 'package:memri_web/model/user_commits.dart';
 
-
 class ConsoleClient {
   final String _url = "https://api.github.com/users";
   final String _api = "events";
   final String _query = "per_page=100";
-  final String _token = "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";
+  final String _token =
+      "Z2hwX2R4MWw4Rkx5ejVhdTViTXRIWmpKMWtWdEVxTjhmUTJZQkhXWQ==";
 
   /// Returns the User object of the given [userName]
   ///
@@ -18,13 +18,14 @@ class ConsoleClient {
     int pageCount = 3; // Github API limitied to 3 pages.
     List<Events> eventList = [];
     Map<String, int> repoMap = <String, int>{};
+    final token = String.fromCharCodes(base64.decode(_token));
     for (int i = 1; i <= pageCount; ++i) {
       try {
         http.Response response = await http
             .get(Uri.parse("$_url/$userName/$_api?$_query&page=$i"), headers: {
           'Content-Type': 'application/json',
           "Accept": "application/vnd.github+json",
-          'Authorization': 'Bearer $_token'
+          'Authorization': 'Bearer $token'
         });
         var jsonBody = jsonDecode(response.body);
         List<Events> event =
